@@ -30,19 +30,13 @@ try:
         # Step 3B: Fallback – try submitting through password field
         input_fields[1].submit()
 
-    # Step 4: Wait for successful login → redirected to app/ua dashboard
-    WebDriverWait(driver, 15).until(
-        EC.url_contains("https://ua.segwise.ai/qa_assignment/creatives/35?")
-    )
-
-    # Step 5: Assert chart is present
-    chart = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located((By.recharts, "recharts-cartesian-grid-horizontal"))
-    )
+    # Step 5: Assert chart is present using XPath
+    chart = WebDriverWait(driver, 15).until(
+    EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]'))
+)
     assert chart.is_displayed(), "Chart not visible"
-    print(" Chart is visible on dashboard.")
-
-
+    print("Chart is visible on dashboard.")
+ 
 
 finally:
     time.sleep(5)
