@@ -36,6 +36,4 @@ Segwise/
 - Waits for the dashboard to load
 - Verifies the presence of a key dashboard chart using XPath
 
-```python
-XPath used:
-//*[@id="__next"]/main/div[2]/div/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]
+
